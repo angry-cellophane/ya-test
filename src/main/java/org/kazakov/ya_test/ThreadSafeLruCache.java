@@ -2,6 +2,7 @@ package org.kazakov.ya_test;
 
 import com.googlecode.concurrentlinkedhashmap.ConcurrentLinkedHashMap;
 
+import javax.annotation.Nonnull;
 import javax.annotation.concurrent.ThreadSafe;
 import java.util.concurrent.ConcurrentSkipListMap;
 
@@ -31,12 +32,12 @@ public class ThreadSafeLruCache<K,V> implements Cache<K,V> {
     }
 
     @Override
-    public V get(Object key) {
+    public V get(@Nonnull Object key) {
         return map.get(key);
     }
 
     @Override
-    public V put(K key, V value) {
+    public V put(@Nonnull K key, @Nonnull V value) {
         return map.put(key, value);
     }
 }

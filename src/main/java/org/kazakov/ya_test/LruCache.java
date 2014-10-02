@@ -3,6 +3,7 @@ package org.kazakov.ya_test;
 import com.google.common.cache.*;
 import com.googlecode.concurrentlinkedhashmap.ConcurrentLinkedHashMap;
 
+import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -28,12 +29,12 @@ public class LruCache<K, V> implements Cache<K, V> {
     }
 
     @Override
-    public V get(Object key) {
+    public V get(@Nonnull Object key) {
         return map.get(key);
     }
 
     @Override
-    public V put(K key, V value) {
+    public V put(@Nonnull K key, @Nonnull V value) {
         return map.put(key, value);
     }
 }

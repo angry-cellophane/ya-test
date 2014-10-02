@@ -1,5 +1,6 @@
 package org.kazakov.ya_test;
 
+import javax.annotation.Nonnull;
 import javax.annotation.concurrent.ThreadSafe;
 
 /**
@@ -11,7 +12,7 @@ public interface Cache<K,V> {
      * get a value by a specified key. The key cannot be null.
      * @return the value mapped by the specified key
      */
-    V get(Object key);
+    V get(@Nonnull Object key);
 
     /**
      * put a pair of key and value into the map.
@@ -20,5 +21,5 @@ public interface Cache<K,V> {
      * @param value
      * @return an old value if it's already been in the map else null
      */
-    V put(K key, V value);
+    V put(@Nonnull K key, @Nonnull V value);
 }

@@ -1,5 +1,6 @@
 package org.kazakov.ya_test;
 
+import javax.annotation.Nonnull;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -25,13 +26,13 @@ public class SingletonCache<K,V> implements Cache<K,V> {
     }
 
     @Override
-    public V get(Object key) {
+    public V get(@Nonnull Object key) {
         Pair pair = entry.get();
         return pair != null && pair.key.equals(key) ? pair.value : null;
     }
 
     @Override
-    public V put(K key, V value) {
+    public V put(@Nonnull K key, @Nonnull V value) {
         Pair oldPair = entry.get();
         entry.set(new Pair(key, value));
         return oldPair != null && oldPair.key.equals(key) ? oldPair.value : null;

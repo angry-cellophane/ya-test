@@ -48,13 +48,13 @@ public class FifoCache<K,V> implements Cache<K,V> {
     }
 
     @Override
-    public V get(Object key) {
+    public V get(@Nonnull Object key) {
         Node node = map.get(key);
         return node == null ? null : node.value;
     }
 
     @Override
-    public V put(K key, V value) {
+    public V put(@Nonnull K key, @Nonnull V value) {
         for (;;) {
             Snapshot oldState = state.get();
             Node oldHead = oldState.head;
